@@ -5,6 +5,7 @@ import { StoryCard } from "./story-card"
 import { Skeleton } from "@/components/ui/skeleton"
 import { Button } from "@/components/ui/button"
 import { ChevronDown, Flame, Clock, Loader2 } from "lucide-react"
+import LoadingSkeleton from "./skeleton"
 
 interface Story {
   id: number
@@ -113,11 +114,7 @@ export function StoryFeed() {
       </div>
 
       {loading ? (
-        <div className="grid grid-cols-1 gap-4">
-          {Array.from({ length: 6 }).map((_, i) => (
-            <Skeleton key={i} className="h-32 w-full bg-card/50 border border-primary/5" />
-          ))}
-        </div>
+        <LoadingSkeleton/>
       ) : (
         <>
           <div className="grid grid-cols-1 gap-4">
@@ -132,7 +129,7 @@ export function StoryFeed() {
                 onClick={loadMoreStories} 
                 disabled={loadingMore} 
                 variant="outline" 
-                className="font-black uppercase italic tracking-widest border-primary/20 hover:bg-primary/5 px-12 h-12 cursor-pointer"
+                className="font-black uppercase italic tracking-widest border-primary/20 hover:bg-primary/5 px-12 h-12 cursor-pointer mb-10 lg:mb-4"
               >
                 {loadingMore ? <Loader2 className="animate-spin mr-2" /> : "Carregar Mais_"}
                 <ChevronDown className="h-4 w-4" />

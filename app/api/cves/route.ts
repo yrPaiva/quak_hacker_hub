@@ -39,7 +39,6 @@ export async function GET(request: Request) {
         published: cve.published, 
       };
     });
-    console.log("CVE Processada:", formattedCVEs);
 
     return NextResponse.json({ 
       cves: formattedCVEs, 

@@ -6,6 +6,7 @@ import Link from "next/link"
 import Image from "next/image"
 import { cn } from "@/lib/utils"
 import QuakScann from "@/public/QuakScann.png"
+import hackerQuak from "@/public/hackerQuak.png"
 
 const NAV_ITEMS = [
   { href: "/", label: "Scan", icon: Search },
@@ -22,8 +23,8 @@ export function NavShell({ children }: { children: React.ReactNode }) {
       
       {/* --- DESKTOP SIDEBAR --- */}
       <aside className="hidden md:flex w-64 border-r border-primary/10 bg-card/20 backdrop-blur-xl p-6 flex-col">
-        <div className="flex flex-col items-center gap-3 mb-10 relative">
-          <Image src={QuakScann} alt="Logo" width={80} height={80} className="absolute -top-6" />
+        <div className="flex flex-col items-center gap-3 mb-8 relative mt-8">
+          <Image src={hackerQuak} alt="Logo" width={80} height={80} className="absolute -top-8 left-12.5" />
           <h1 className="text-xl font-black tracking-tighter uppercase italic mt-6 flex items-center">
             Quak<span className="text-primary">Sec</span>
             <Shield className="text-primary w-6 h-6 animate-pulse ml-2" />
@@ -43,8 +44,8 @@ export function NavShell({ children }: { children: React.ReactNode }) {
 
       {/* --- MOBILE HEADER --- */}
       <header className="md:hidden flex items-center justify-between p-4 border-b border-primary/10 bg-background/80 backdrop-blur-md z-50">
-        <div className="flex flex-col items-center gap-3 mb-10 relative">
-          <Image src={QuakScann} alt="Logo" width={80} height={80} className="absolute -top-6" />
+        <div className="flex flex-col items-center gap-3 mb-2 relative mt-6">
+          <Image src={hackerQuak} alt="Logo" width={80} height={80} className="absolute -top-8 right-6" />
           <h1 className="text-xl font-black tracking-tighter uppercase italic mt-6 flex items-center">
             Quak<span className="text-primary">Sec</span>
             <Shield className="text-primary w-5 h-5 animate-pulse ml-2" />

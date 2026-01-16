@@ -22,7 +22,6 @@ export async function GET(request: Request) {
       }
     );
 
-    console.log('repsonse: ', response)
     if (response.status === 404) {
       return NextResponse.json({
         success: true,
@@ -48,8 +47,6 @@ export async function GET(request: Request) {
 
     // MODO NOT_SAFE
     const formattedBreaches = realLeaks.map((leak: any) => {
-      const emailPrefix = email.split('@')[0];
-      console.log('realisticHint: ', leak);
       return {
         site: leak.Name,
         date: leak.BreachDate,

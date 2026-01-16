@@ -3,7 +3,7 @@
 import { useEffect, useState, useCallback } from "react"
 import { Terminal, AlertTriangle, ChevronDown, Loader2 } from "lucide-react"
 import { Button } from "@/components/ui/button"
-
+import LoadingSkeleton from "@/components/skeleton"
 export default function CVEFeed() {
   const [cves, setCves] = useState<any[]>([])
   const [loading, setLoading] = useState(true)
@@ -48,13 +48,13 @@ export default function CVEFeed() {
   return (
     <div className="container mx-auto px-4 py-8 max-w-5xl font-mono">
       <div className="mb-10 border-l-4 border-primary pl-4">
-        <h2 className="text-2xl font-black uppercase tracking-widest">Registro_de_vulnerabilidades</h2>
+        <h2 className="text-2xl font-black uppercase tracking-widest">Registro de vulnerabilidades</h2>
         <p className="text-xs text-primary/60 italic">Monitorando falhas de 2025/2026 em tempo real</p>
       </div>
 
       <div className="space-y-3">
         {loading ? (
-          <p className="animate-pulse text-primary">Acessando banco de dados do NIST...</p>
+          <LoadingSkeleton />
         ) : (
           <>
             {cves.map((cve: any) => (
@@ -85,7 +85,7 @@ export default function CVEFeed() {
                 onClick={handleLoadMore} 
                 disabled={loadingMore}
                 variant="outline" 
-                className="font-black uppercase italic tracking-widest border-primary/20 hover:bg-primary/5 px-12 h-12 cursor-pointer"
+                className="font-black uppercase italic tracking-widest border-primary/20 hover:bg-primary/5 px-12 h-12 cursor-pointer mb-10 lg:mb-4"
               >
                 {loadingMore ? <Loader2 className="animate-spin mr-2" /> : "Carregar Mais_"}
                 <ChevronDown className="h-4 w-4" />
