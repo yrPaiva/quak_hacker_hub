@@ -7,7 +7,7 @@ export async function GET(request: Request) {
   // Pegar os ultimos 10 dias
   const now = new Date();
   const past = new Date();
-  past.setDate(now.getDate() - 10); 
+  past.setDate(now.getDate() - 1); 
 
   const pubStartDate = past.toISOString();
   const pubEndDate = now.toISOString();
@@ -39,6 +39,7 @@ export async function GET(request: Request) {
         published: cve.published, 
       };
     });
+    console.log("CVE Processada:", formattedCVEs);
 
     return NextResponse.json({ 
       cves: formattedCVEs, 
